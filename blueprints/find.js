@@ -41,8 +41,9 @@ module.exports = function findRecords(req, res) {
   Promise.all(promises)
     .then(results => {
       if (countInResponse) {
-        res.set('Access-Control-Expose-Headers', countInResponse);
-        res.set(countInResponse, results[1]);
+//         res.set('Access-Control-Expose-Headers', countInResponse);
+        
+        res.set('X-Total-Count', results[1]);
       }
 
       let response = results[0] || [];
